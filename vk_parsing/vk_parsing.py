@@ -3,29 +3,8 @@ import time
 import csv
 from numba import jit
 
-
-# token = '59e6c1a359e6c1a359e6c1a3665af5dd83559e659e6c1a33df2af97e91e6ec01ef1a9fa'
-#
-# params = {
-#     'access_token': token,
-#     'v': 5.131,
-#     'group_id': 'quietland_devblog',
-#     'offset': 0
-# }
-# get_user_ids = requests.get('https://api.vk.com/method/groups.getMembers', params=params).json()
-# counter = get_user_ids['response']
-#
-# people_counter = 1
-#
-# all_members = counter['count']
-# text_file = open('names.csv', 'w')
-# text_file.close()
-# text_file = open('friends.csv', 'w')
-# text_file.close()
-
-# @jit(nopython=True, parallel=True)
 def main():
-    token = '59e6c1a359e6c1a359e6c1a3665af5dd83559e659e6c1a33df2af97e91e6ec01ef1a9fa'
+    token = '59e6c1a359e6c65af5dd83559e659e6c1a33df2af97e91e6ec01ef1a9fa'
 
     params = {
         'access_token': token,
@@ -79,7 +58,7 @@ def main():
             get_user_friends = requests.get('https://api.vk.com/method/friends.get',
                                             params={'access_token': token, 'v': 5.131,
                                                     'user_id': i['id']}).json()
-            # friends = get_user_friends.get('response', '[]')
+
             if 'response' in get_user_friends and get_user_friends['response']['count'] > 0:
                 friends = get_user_friends['response']['items']
             else:
@@ -91,7 +70,7 @@ def main():
             all_members -= 1
 
         params['offset'] += len(get_user_ids['response']['items'])
-        # params['offset'] += 1000
+        
 
 
 main()
