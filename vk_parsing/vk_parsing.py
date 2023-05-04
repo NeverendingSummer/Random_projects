@@ -4,7 +4,7 @@ import csv
 from numba import jit
 
 def main():
-    token = '59e6c1a359e6c65af5dd83559e659e6c1a33df2af97e91e6ec01ef1a9fa'
+    token = '59e6c1a359e6c65af583559e659e6c1a33df2af97e91e6ec01ef1a9fa'
 
     params = {
         'access_token': token,
