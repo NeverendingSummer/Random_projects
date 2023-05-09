@@ -2,7 +2,7 @@ from neo4j import GraphDatabase
 import csv
 
 URI = "bolt://localhost:7687"
-AUTH = ("neo4j", "2283221488")
+AUTH = ("neo4j", "root")
 
 
 def upload_friends(session):
